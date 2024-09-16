@@ -1,0 +1,130 @@
+.be-vietnam pro-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+*
+{
+    font-family:Poppins  ;
+}
+
+body{
+    background: #004236;
+    color: white;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+}
+
+td {
+    width: auto;
+    height: auto;
+    background-color:  #ff8800;
+}
+
+th, td{
+    border: 1px solid white;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    animation: ease-in 2s linear;
+    color: rgb(236, 70, 70);
+    transition: 400ms linear;
+}
+  .container
+{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+
+.botao-lista {
+    border-radius: 15px;
+    box-shadow: none;
+    border: none;
+}
+
+#atualizar-lista:hover {
+    background-color: rgb(91, 231, 91);
+}
+
+#deletar-lista:hover {
+    background-color: rgb(224, 62, 62);
+}
+
+#subirItem-lista:hover {
+    background-color: rgb(121, 184, 255);
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.logo {
+    width: 80px;
+    height: auto;
+}
+
+p{
+    text-align: center;
+    font-size: 25px;
+}
+
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    10% {opacity: 0.9;}
+    20% {opacity: 0.8;}
+    30% {opacity: 0.7;}
+    40% {opacity: 0.6;}
+    50% {opacity: 0.5;}
+    60% {opacity: 0.4;}
+    70%{opacity:0.3;}
+    80%{opacity: 0.2;}
+    90% {opacity:0.1;}
+    100% { opacity: 0; }
+}
+
+/* Aplica a animação ao elemento */
+.mensagem {
+    animation: fadeOut 2s ease forwards;
+    animation-delay: 2s; /* Define o atraso antes de começar a animação */
+    opacity: 1; /* Define a opacidade inicial */
+}
+
+.btn {
+    border-radius: 10px;
+    /* background-color: yellow; */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn#cadastrar:hover{
+    background-color: rgb(91, 231, 91);
+}
+
+.btn#resetar:hover{
+    background-color: rgb(224, 62, 62);
+}
+

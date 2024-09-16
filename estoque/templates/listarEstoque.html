@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/list.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styleList.css">
+    <link rel="icon" href="{{url_for('static', filename='img/Logo.png')}}">
+    <title>Listar Produtos</title>
+</head>
+<body>
+<header>
+    <a href="http://localhost:5003"><img src="{{url_for('static', filename='img/Logo.png')}}" class="logo"/></a>
+    <nav class="menu">
+    <ul>
+        <li><a href="http://localhost:5001/">Cadastrar Item Menu</a></li>
+        <li><a href="http://localhost:5001/list">Lista de Item Menu</a></li>
+        <li><a href="http://localhost:5002/">Cadastrar Ordem de Compra</a></li>
+        <li><a href="http://localhost:5002/list">Lista de Ordem de Compras</a></li>
+        <li><a href="http://localhost:5000/">Cadastrar Produtos</a></li>
+        <li><a href="http://localhost:5000/list">Lista de Produtos</a></li>
+
+    </ul>
+</nav>
+</header>
+<hr>
+<p class="titulo">Estoque</p>
+<div class="container">
+    <table>
+        <tr><td> Nome do Produto </td><td>Quantidade</td><td>Mililitros Totais</td><td>Peso em gramas Total</td></tr>
+        {% for item in datas %}
+        <tr>
+            <th>{{item[1]}}</th>
+            <th>{{item[4]}}</th>
+            <th>{{item[2]}}</th>
+            <th>{{item[3]}}</th>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <p class="mensagem">{{mensagem}}</p>
+</body>
+</html>

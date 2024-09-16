@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{url_for('static', filename='/static/img/Logo.png')}}">
+    <title>Editar Categoria</title>
+</head>
+<body>
+    <header>
+        <a href="http://localhost:5001"><img src="{{url_for('static', filename='/img/Logo.png')}}" class="logo"/></a>
+            <nav class="menu">
+            <ul>
+                <li><a href="http://localhost:5001/">Cadastrar Produtos</a></li>
+                <li><a href="http://localhost:5001/categoria">Cadastrar Categoria</a></li>
+                <li><a href="http://localhost:5001/list_produto">Lista de Produtos</a></li>
+                <li><a href="http://localhost:5001/list_categoria">Lista de Categorias</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <p class="titulo">Atualizar Categoria: {{data[0][1]}}</p>
+    <div class="container">
+
+    <form action="editar" method="post">
+
+        <label for="inputNomeCategoria">Categoria: </label><br>    
+        <input type="text" name="inputNomeCategoria" id="inputNomeCategoria" value="{{data[0][1]}}" class="form-control"  required autofocus placeholder="Digite o nome da categoria"><br><br>
+            
+        <label for="inputOrdem" >Ordem:</label><br>
+        <input type="number" name="inputOrdem" id="inputOrdem" value="{{data[0][2]}}" class="form-control" required placeholder="Digite a posição que o item irá aparecer no menu..." ><br><br>
+         
+        <button id="cadastrar" class="" type="submit" >Salvar</button>
+        <input type="hidden" id="inputCategoriaId" name="inputCategoriaId" value="{{datas[0][0]}}">
+    </form> 
+    <p class="mensagem">{{mensagem}}</p>
+    </div>
+</body>
+</html>

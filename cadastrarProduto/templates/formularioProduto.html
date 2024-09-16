@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styleForm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{url_for('static', filename='img/Logo.png')}}">
+    <title>Cadastrar produto</title>
+</head>
+<body>
+    <header>
+            <a href="http://localhost:5000"><img src="{{url_for('static', filename='img/Logo.png')}}" class="logo"/></a>
+            <nav class="menu">
+            <ul>
+                <li><a href="http://localhost:5001/">Cadastrar Item Menu</a></li>
+                <li><a href="http://localhost:5001/list">Lista de Item Menu</a></li>
+                <li><a href="http://localhost:5002/">Cadastrar Ordem de Compra</a></li>
+                <li><a href="http://localhost:5002/list">Lista de Ordem de Compras</a></li>
+                <li><a href="http://localhost:5000/list">Lista de Produtos</a></li>
+                <li><a href="http://localhost:5003/list">Lista do Estoque</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <p class="titulo">Cadastre um produto</p>
+    <div class="container">
+    <form action="cadastrar" method="post">
+        <label for="inputNome" class="sr-only">Nome do produto: </label><br>    
+        <input type="text" name="inputNome" id="inputNome" class="form-control"  required autofocus placeholder="Digite o nome do produto"><br>
+        <label for="inputCategoria">Categoria: </label><br>
+        <select name="inputCategoria" id="inputCategoria" class="form-control" required>
+            <option value="" disabled selected>Selecione uma Categoria...</option>
+            <option value="Corrente">Corrente</option>
+            <option value="Pulseira">Pulseira</option>
+            <option value="Escapulario">Escapulario</option>
+        </select><br>
+
+
+        <label for="inputPeso">Gramas:</label><br>
+        <input type="number" name="inputPeso" id="inputPeso" class="form-control" step="0.001" placeholder="Digite a quantidade de Gramas" ><br>
+        <label for="inputPreco">Preço:</label><br>
+        <input type="number" name="inputPreco" id="inputPreco" class="form-control" placeholder="Digite o preço (ex: 10.99)" step="0.01" min="0" required><br>
+        <label for="inputDescricao">Descrição:</label><br>
+        <textarea name="inputDescricao" id="inputDescricao" class="form-control" placeholder="Digite a descrição" maxlength="45" ></textarea><br>
+        <button id="cadastrar" class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
+        <button id="resetar" class="btn btn-lg btn-primary btn-block" type="reset">Limpar</button>
+    </form>
+</div>
+<p class="mensagem">{{mensagem}}</p>
+
+</body>
+</html>

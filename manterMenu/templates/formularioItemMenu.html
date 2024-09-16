@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{url_for('static', filename='img/Logo.png')}}">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Cardápio</title>
+</head>
+<body>
+    <header>
+        <a href="http://localhost:5001"><img src="{{url_for('static', filename='img/Logo.png')}}" class="logo"/></a>
+        <nav class="menu">
+        <ul>
+            <li><a href="http://localhost:5001/list">Lista de Item Menu</a></li>
+            <li><a href="http://localhost:5002/">Cadastrar Ordem de Compra</a></li>
+            <li><a href="http://localhost:5002/list">Lista de Ordem de Compras</a></li>
+            <li><a href="http://localhost:5000/">Cadastrar Produtos</a></li>
+            <li><a href="http://localhost:5000/list">Lista de Produtos</a></li>
+            <!-- <li><a href="http://localhost:5001/categoria">Cadastrar Categoria</a></li> -->
+            <li><a href="http://localhost:5003/list">Lista do Estoque</a></li>
+        </ul>
+    </nav>
+    </header>
+    <hr>
+    <p class="titulo">Cadastrar um item do menu</p>
+    <div class="container">
+    <form action="cadastrarItem" method="post">
+        <label for="inputNome" class="sr-only">Nome do Item:</label><br>
+        <input type="text" name="inputNome" id="inputNome" class="form-control" required autofocus placeholder="Digite o nome do item"><br>
+        <label for="inputCategoria">Categoria: </label><br>
+            
+            <select name="inputCategoria" id="inputCategoria" class="form-control" required>
+                <option value="" disabled selected>Selecione uma Categoria...</option>
+                <!-- {% for categoria in categorias %}
+                <option value="{{categoria[0]}}">{{categoria[0]}}</option>
+                {%endfor%} -->
+                <option value="Bebida">Bebida</option>
+                <option value="Drink">Drink</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Prato">Prato</option>
+                <option value="Sobremesa">Sobremesa</option>
+            </select><br>
+        
+        <label for="inputDescricao">Descrição:</label><br>
+        <input type="text" name="inputDescricao" id="inputDescricao" class="form-control" default= "Não há" required autofocus placeholder="Descrição do item"><br>
+        <label for="inputPreco">Preço: </label><br>
+        <input type="number" name="inputPreco" id="inputPreco" class="form-control" required autofocus placeholder="Preço do item"><br>
+        <!-- <label for="imagem" style="font-weight: bold">Selecione uma imagem:</label><br>
+            <input type="file" id="imagem" name="imagem" ><br>
+             
+
+            <input type="submit" value="Upload"><br> -->
+
+        <button id="cadastrar" class="btn" type="submit">Cadastrar</button>
+        <button id="resetar" class="btn" type="reset">Limpar</button><br>
+        <p class="mensagem">{{mensagem}}</p>
+    </form>
+</div>
+</body>
+</html>

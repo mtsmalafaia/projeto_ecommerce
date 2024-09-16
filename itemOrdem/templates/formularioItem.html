@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styleForm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{url_for('static', filename='img/Logo.png')}}">
+    <title>Cadastrar produto</title>
+</head>
+<body>
+    <header>
+            <a href="http://localhost:5002"><img src="{{url_for('static', filename='img/Logo.png')}}" class="logo"/></a>
+            <nav class="menu">
+            <ul>
+                <li><a href="http://localhost:5001/">Cadastrar Item Menu</a></li>
+                <li><a href="http://localhost:5001/list">Lista de Item Menu</a></li>
+                <li><a href="http://localhost:5002/list">Lista de Ordem de Compras</a></li>
+                <li><a href="http://localhost:5000/">Cadastrar Produtos</a></li>
+                <li><a href="http://localhost:5000/list">Lista de Produtos</a></li>
+                <li><a href="http://localhost:5003/list">Lista do Estoque</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <p class="titulo">Cadastre um Item Ordem</p>
+    <div class="container">
+    <form action="cadastrar" method="post">
+        <label for="inputNome">Nome do Item Ordem: </label><br>
+        <select name="inputNome" id="inputNome"
+         class="form-control" required autofocus>
+            <option value="" disabled selected>Selecione um produto...</option>
+            {% for produto in produtos %}
+            <option value="{{produto[0]}}">{{produto[0]}}</option>
+            {%endfor%}
+        </select><br>
+
+
+        <label for="inputQuantidade">Quantidade:</label><br>
+        <input type="number" name="inputQuantidade" id="inputQuantidade" class="form-control" placeholder="Digite a quantidade do Item Ordem" min="0" required><br>
+        <label for="inputPreco">Preço:</label><br>
+        <input type="number" name="inputPreco" id="inputPreco" class="form-control" placeholder="Digite o preço (ex: 10.99)" step="0.01" min="0" required><br>
+        <label for="inputDescricao">Descrição:</label><br>
+        <textarea name="inputDescricao" id="inputDescricao" class="form-control" placeholder="Digite a descrição" maxlength="45" ></textarea><br>
+        <button id="cadastrar" class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
+        <button id="resetar" class="btn btn-lg btn-primary btn-block" type="reset">Limpar</button>
+    </form>
+</div>
+<p class="mensagem">{{mensagem}}</p>
+</body>
+</html>

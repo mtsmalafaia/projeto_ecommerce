@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styleList.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{url_for('static', filename='/static/img/Logo.png')}}">
+    <title>Categorias</title>
+</head>
+<body>
+    <header>
+        <a href="http://localhost:5001"><img src="{{url_for('static', filename='/img/Logo.png')}}" class="logo"/></a>
+            <nav class="menu">
+            <ul>
+                <li><a href="http://localhost:5001/">Cadastrar Produtos</a></li>
+                <li><a href="http://localhost:5001/categoria">Cadastrar Categoria</a></li>
+                <li><a href="http://localhost:5001/list_produto">Lista de Produtos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <p class="titulo">Adicionar Categoria </p>
+    <div class="container">
+        <form action="cadastrar_categoria" method="post">
+        <label for="inputNomeCategoria">Categoria: </label><br>    
+        <input type="text" name="inputNomeCategoria" id="inputNomeCategoria" class="form-control"  required autofocus placeholder="Digite o nome da categoria"><br><br>
+              
+    
+        <button id="cadastrar" class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button><br>
+    </form>
+    <p class="mensagem">{{mensagem}}</p>
+    
+    <p class="titulo">Categorias </p>
+    <div class="container">
+    <table>
+        <tr><td align="center"> ID </td><td align="center">Categoria</td></tr>
+        {% for item in dados %}
+        <tr>
+            <th>{{item[0]}}</th>
+            <th>{{item[1]}}</th>
+            <th><a href="/atualizar_categoria/{{item[0]}}"><button>Atualizar</button></a></th>
+            <th><button onclick="funcao2('{{item[0]}}')">Deletar</button></th>
+        </tr>
+        {% endfor %}
+    </table><br>
+    <p class="mensagem">{{mensagem}}</p>
+</div>
+</body>
+</html>

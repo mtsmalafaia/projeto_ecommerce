@@ -1,0 +1,33 @@
+Antes de tudo temos que instalar o docker descktop.
+depois de instalado iniciar ele.
+
+Docker tem duas formas de trabalhar, com imagens e containers
+
+Existem algumas imagem prontas no dockerhub, que da para usar usando o comando ex:"docker pull mysql" ou podemos crialas com a minha configuração.
+
+Para essa matéria vamos usar uma imagem criada usando um arquivo "Dockerfile".
+Dentro desse arquivo faremos a configuração baseado nas necessidades do projeto, no caso desse projeto será para fazer um aplicação python falsk web  
+
+Dentro do arquivo tem os seguintes comandos:
+
+FROM python:3.7-slim
+RUN pip install flask
+RUN pip install flask-mysql
+RUN mkdir templates
+RUN mkdir static
+COPY templates/*  /templates/
+COPY static/*  /static/
+RUN chmod -R a+rwx static
+RUN chmod -R a+rwx templates
+CMD ["python","cadastrarProduto.py"]
+
+
+Entrar no site https://labs.play-with-docker.com/ 
+para colocar a pasta para rodar no containe.
+fazer o login e clicar no botão: + ADD NEW INSTANCE
+vai abrir o cmd automatico e la camos pegar o caminho da pasta no github copiar e dar um git clone "caminho que colou la na github"(para colar tem que usar o shift + insert)
+
+Depois de clonado vai usar o comando ls que equicale ao dir no cmd, para per os diretorios e entrar na pasta onde esta o Dockerfile usando o cd e o nome da pasta
+
+ usar o comando para construir a imagem:
+ docker image build -t python-web .

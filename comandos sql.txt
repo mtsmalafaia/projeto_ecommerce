@@ -1,0 +1,85 @@
+
+Lembrando ... quem digita .... erra
+
+CREATE SCHEMA IF NOT EXISTS ecommerce;
+
+USE ecommerce;
+
+CREATE TABLE IF NOT EXISTS tblProduto 
+( 
+    produtoId     BIGINT       NOT NULL   AUTO_INCREMENT, 
+    nomeDoProduto  VARCHAR(45)  NOT NULL,
+    categoria      VARCHAR(15)  NOT NULL, 
+    pesoGramas       FLOAT(15,2)       NULL,
+    preco          FLOAT(15,2)   NOT NULL, 
+    descricao      VARCHAR(45),
+    PRIMARY KEY (produtoId)
+);
+
+SELECT * FROM tblProduto;
+
+
+CREATE TABLE IF NOT EXISTS tblItemOrdem 
+( 
+    itemOrdemId               BIGINT       NOT NULL   AUTO_INCREMENT, 
+    nomeItem                   VARCHAR(45)  NOT NULL,
+    quantidade 	               INT          NOT NULL,
+    precoProduto               FLOAT(15,2)   NOT NULL,
+    precoTotalPorProduto       FLOAT(15,2)   NOT NULL,
+    descricao                  VARCHAR(45), 
+    PRIMARY KEY (itemOrdemId)
+);
+
+
+SELECT * FROM tblItemOrdem;
+
+
+CREATE TABLE IF NOT EXISTS tblMenu
+(
+    itemId      BIGINT       NOT NULL AUTO_INCREMENT,
+    nomeDoItem   VARCHAR(45)  NOT NULL,
+    categoria      VARCHAR(15)  NOT NULL,
+    descricao      VARCHAR(85)  NULL,
+    preco          FLOAT(6,2),
+    PRIMARY KEY (itemId)
+
+);
+
+SELECT * FROM tblMenu;
+
+
+CREATE TABLE IF NOT EXISTS tblCategoria
+(
+    categoriaId      BIGINT       NOT NULL AUTO_INCREMENT,
+    nomeCategoria   VARCHAR(45)  NOT NULL,
+    PRIMARY KEY (categoriaId)
+
+);
+
+SELECT * FROM tblCategoria;
+
+
+CREATE TABLE IF NOT EXISTS tblEstoque 
+( 
+    produtoId     BIGINT       NOT NULL, 
+    nomeDoProduto  VARCHAR(45)  NOT NULL, 
+    pesoGramas    FLOAT(15,2)       NULL,
+    quantidade     FLOAT(15,2)       NULL, 
+    
+    PRIMARY KEY (produtoId)
+);
+
+SELECT * FROM tblEstoque
+
+CREATE TABLE IF NOT EXISTS tblHistorico
+( 
+    produtoId       BIGINT       NOT NULL, 
+    nomeDoProduto   VARCHAR(45)  NOT NULL, 
+    quantidade      INT          NOT NULL,
+    precoUnitario   FLOAT(15,2)  NOT NULL,
+    precoTotal      FLOAT(15,2)  NOT NULL,
+    data            DATETIME         NULL, 
+    tipo            VARCHAR(15)      NULL,
+    
+    FOREIGN KEY (produtoId) REFERENCES tblProduto (produtoId)
+);
