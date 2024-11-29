@@ -20,7 +20,7 @@ li {
 }
 
 td {
-    background-color: #ff8800;
+    background-color: #004236;
 }
 
 th, td{
@@ -38,7 +38,7 @@ a{
 
 a:hover{
     animation:2s linear all ease;
-    color: rgb(236, 70, 70);
+    color: #1c9e86;
     transition: 400ms linear;
 }
 .container
